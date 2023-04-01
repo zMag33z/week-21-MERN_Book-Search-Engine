@@ -1,3 +1,4 @@
+// *** week 21 stu 26
 const jwt = require('jsonwebtoken');
 
 // set token secret and expiration date
