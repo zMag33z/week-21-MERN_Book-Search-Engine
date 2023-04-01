@@ -5,6 +5,8 @@ const express = require('express');
 
 // import apollo which includes our graphql visual interface
 const { ApolloServer } = require('apollo-server-express');
+//we require an auth function to pass below as context
+const { authMiddleware } = require('./utils/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -12,7 +14,8 @@ const PORT = process.env.PORT || 3001;
 // server will be an apolloServer and each call will be a new instance
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: authMiddleware,
 });
 
 app.use(express.urlencoded({ extended: true }));
