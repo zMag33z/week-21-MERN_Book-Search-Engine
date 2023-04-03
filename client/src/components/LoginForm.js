@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 
 import { Form, Button, Alert } from 'react-bootstrap';
+// import usemutation 
 import { useMutation } from '@apollo/client';
 
-// import { loginUser } from '../utils/API';
+// import { loginUser } from '../utils/API'; import graphql mutation
 import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
@@ -14,10 +15,9 @@ const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  // mutation for login of user
-  const [loginUser, { error }] = useMutation(LOGIN_USER);
 
-
+  // mutation for login of user -  dropped { error } claimed but never read !!
+  const [loginUser] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -34,16 +34,16 @@ const LoginForm = () => {
     }
 
     try {
-      const response = await loginUser({ variables: { ...userFormData } });
+      const { data } = await loginUser({ variables: { ...userFormData } });
 
       // if (!response) {
       //   throw new Error(error);
       // }
-      console.log(error)
+    
+  
 
-      const { token, user } = await response.json();
-      console.log('FORM SUBMIT', user);
-      Auth.login(token);
+      Auth.login(data.login.token);
+      console.log('FORM SUBMIT', data);
     } catch (err) {
       console.error(err);
       setShowAlert(true);

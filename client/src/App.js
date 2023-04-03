@@ -43,6 +43,8 @@ const client = new ApolloClient({
 
 console.log('myClient', httpLink);
 
+
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -60,5 +62,6 @@ function App() {
     </ApolloProvider>
   );
 }
+
 
 export default App;

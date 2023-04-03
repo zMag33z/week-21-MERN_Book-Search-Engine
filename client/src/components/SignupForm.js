@@ -15,8 +15,8 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  // mutation for new user to be added
-  const [createUser, { error }] = useMutation(ADD_USER);
+  // mutation for new user to be added same { error } defined but not read!!
+  const [createUser] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -34,15 +34,16 @@ const SignupForm = () => {
     }
 
     try {
-      const response = await createUser({ variables: { ...userFormData } });
+      const { data } = await createUser({ variables: { ...userFormData } });
 
       // if (!response) {
       //   throw new Error(error);
       // }
 
-      const { token, user } = await response.json();
-      console.log(error);
-      Auth.login(token);
+      // const { token, user } = await response.json();
+
+      Auth.login(data.login.token);
+      console.log(data);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
