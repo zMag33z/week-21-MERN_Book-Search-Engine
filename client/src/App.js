@@ -1,17 +1,18 @@
-// import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-
 import React from 'react';
+// import apollo as client
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+
 import { setContext } from '@apollo/client/link/context';
+
+// user react elements for client router
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// component and pages to display
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
@@ -40,28 +41,22 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
+console.log('myClient', httpLink);
+
 function App() {
   return (
     <ApolloProvider client={client}>
-    <Router>
-      <>
-        <Navbar />
-        <Routes>
-          <Route 
-            path='/' 
-            element={<SearchBooks />} 
-          />
-          <Route 
-            path='/saved' 
-            element={<SavedBooks />} 
-          />
-          <Route 
-            path='*'
-            element={<h1 className='display-2'>Wrong page!</h1>}
-          />
-        </Routes>
-      </>
-    </Router>
+      <Router>
+        <>
+          <Navbar />
+          <Routes>
+            <Route exact path='/' component={SearchBooks} />
+            <Route exact path='/saved' component={SavedBooks} />
+            {/*had to run as render to get display to app running*/}
+            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+          </Routes>
+        </>
+      </Router>
     </ApolloProvider>
   );
 }
