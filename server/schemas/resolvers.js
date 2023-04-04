@@ -36,6 +36,7 @@ const resolvers = {
     },
     // pull args from user input to create user then turn user to receive token then return user and token as value
     addUser: async (parent, { username, email, password }) => {
+      console.log({username, email, password});
       const user = await User.create({ username, email, password });
       const token = signToken(user);
 

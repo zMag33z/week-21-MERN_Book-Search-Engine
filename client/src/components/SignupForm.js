@@ -32,10 +32,10 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     };
-
+    // the data action will be named after the resolver
     try {
       const { data } = await createUser({ variables: { ...userFormData } });
-      Auth.login(data.login.token);
+      Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
