@@ -41,9 +41,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-console.log('myClient', httpLink);
-
-
 
 function App() {
   return (
@@ -52,8 +49,8 @@ function App() {
         <>
           <Navbar />
           <Routes>
-            <Route exact path='/' component={SearchBooks} />
-            <Route exact path='/saved' component={SavedBooks} />
+            <Route path='/' component={<SearchBooks />} />
+            <Route path='/saved' component={<SavedBooks />} />
             {/*had to run as render to get display to app running*/}
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Routes>

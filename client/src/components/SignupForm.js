@@ -31,23 +31,15 @@ const SignupForm = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-    }
+    };
 
     try {
       const { data } = await createUser({ variables: { ...userFormData } });
-
-      // if (!response) {
-      //   throw new Error(error);
-      // }
-
-      // const { token, user } = await response.json();
-
       Auth.login(data.login.token);
-      console.log(data);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
-    }
+    };
 
     setUserFormData({
       username: '',

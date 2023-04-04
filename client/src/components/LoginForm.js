@@ -31,23 +31,17 @@ const LoginForm = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-    }
+    };
 
     try {
       const { data } = await loginUser({ variables: { ...userFormData } });
-
-      // if (!response) {
-      //   throw new Error(error);
-      // }
-    
-  
 
       Auth.login(data.login.token);
       console.log('FORM SUBMIT', data);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
-    }
+    };
 
     setUserFormData({
       username: '',
@@ -56,6 +50,7 @@ const LoginForm = () => {
     });
   };
 
+  // if signup has a username field then why are we logging the user in with email.  what's the point of username??  there is none at that point.  if it is to just display their name to the user themself, pointless.  help them feel included with personal username login.
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>

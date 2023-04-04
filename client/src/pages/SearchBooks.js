@@ -80,27 +80,19 @@ const SearchBooks = () => {
     }
 
     try {
-      // const response = await saveBook(bookToSave, token);
-      const { data } = await saveBook({
-        variables: { input: bookToSave },
-      })
-
-      console.log(data)
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
-
+      await saveBook({
+        variables: { input: { ...bookToSave } },
+      });
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
-
     } catch (err) {
       console.error(err);
-    }
+    };
   };
 
   return (
     <>
-      <div className="text-light bg-dark p-5">
+      <div className="container-fluid text-light bg-dark p-5">
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
