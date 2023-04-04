@@ -3,7 +3,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 
-//we require an auth function to pass below as context
+// we require an auth function to pass below as context
 const { authMiddleware } = require('./utils/auth');
 
 const { typeDefs, resolvers } = require('./schemas');
@@ -18,13 +18,17 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-app.use(express.urlencoded({ extended: true }));
+//  ALL PRACTICE APPS HAVE THIS AS EXTENDED FALSE
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+
+
 
 // if we're in production, this app - serve client/build as static assets only *no others
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
-}
+};
 
 // server this compiled output index file
 app.get('/', (req, res) => {
