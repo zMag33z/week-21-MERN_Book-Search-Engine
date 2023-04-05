@@ -47,11 +47,11 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
-          <Routes>
-            <Route path='/' component={<SearchBooks />} />
-            <Route path='/saved' component={<SavedBooks />} />
-            {/*had to run as render to get display to app running*/}
+          <Navbar />          
+          <Routes>             
+            <Route path='/' element={<SearchBooks />} />
+            <Route path='/saved' element={<SavedBooks />} />
+            {/*had to run as render to get display to app running even though this path isn't being called*/}
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Routes>
         </>

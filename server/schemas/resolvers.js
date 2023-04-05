@@ -20,26 +20,24 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
-      // check user name
+      // check username
       if (!user) {
         throw new AuthenticationError("username/password is incorrect");
       }
-      // 
+      // retrieve and check user password behind the curtain
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError("username/password is incorrect");
       }
+      // all pass assign token to user.
       const token = signToken(user);
-
       return { token, user };
     },
     // pull args from user input to create user then turn user to receive token then return user and token as value
     addUser: async (parent, { username, email, password }) => {
-      console.log({username, email, password});
       const user = await User.create({ username, email, password });
       const token = signToken(user);
-
       return { token, user };
     },
     // pull user input from args and add to set return new true
