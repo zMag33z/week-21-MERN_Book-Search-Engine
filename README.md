@@ -1,66 +1,43 @@
-### ****Under Construction***
 # week-21-MERN_Book-Search-Engine
 
 ## Description:
 
-This is a full stack web application using the **MERN stack** architectural pattern. Using four separate technologies to construct the three traditional tiers of a website:
-  - **M**ongoDB - database tier;
-  - **E**xpress - server application tier;
-  - **R**eact - client display tier;
-  - **N**ode - the runtime environment outside of the client browser environment.
-
-### Table of Contents
- - [Usage](#usage)
- - [Technologies](#technologies)
- - [Resources](#resources)
- - [Location](#location)
- - [License](#license)
-
+This application uses the **MERN stack** architectural pattern. Utilizing four separate technologies to construct the three traditional tiers of a full-stack web application:
+  - **M**ongoDB - database tier&nbsp;&nbsp;![MongoDB](https://img.shields.io/badge/MongoDB-v4.4.17-9cf)
+  - **E**xpress - server application tier&nbsp;&nbsp;![npm version](https://img.shields.io/badge/express-v4.17.1-9cf)
+  - **R**eact - client display tier&nbsp;&nbsp;![npm version](https://img.shields.io/badge/express-v4.17.1-9cf)
+  - **N**ode - the runtime environment outside of the client browser environment&nbsp;&nbsp;![npm version](https://img.shields.io/badge/node-v18.12.1-9cf)
 
 ## Usage:
 
+Welcome to this Googily Book Search using Google's Book Search API.  The site enables user login so that each user has the ability to book search and then add it to a personalized list for later use.
 
-
-## Technologies:
-
-
+![Site Homepage](./assets/googily.png)
 
 ## Resources:
-repo:
-"concurrently": "^5.1.0"
 
-client:
-"@testing-library/jest-dom": "^4.2.4",
-"@testing-library/react": "^9.3.2",
-"@testing-library/user-event": "^7.1.2",
-"bootstrap": "^5.2.3",
-"jwt-decode": "^2.2.0",
-"react": "^16.13.1",
-"react-bootstrap": "^2.7.0",
-"react-dom": "^16.13.1",
-"react-router-dom": "^6.2.1",
-"react-scripts": "^5.0.1"
+[MongoDB](https://www.mongodb.com/)
 
-server:
-"bcrypt": "^4.0.1",
-"express": "^4.17.1",
-"jsonwebtoken": "^8.5.1",
-"mongoose": "^6.9.2"
-},
-"devDependencies": {
-"nodemon": "^2.0.3"
+[Express](https://expressjs.com/)
 
+[React](https://react.dev/)
 
+[Node.js](https://nodejs.org/en/about)
+
+[Google Books APIs](https://developers.google.com/books)
+
+**_Original Source Code:_**&nbsp;&nbsp;[provided by UTexas.edu](https://techbootcamps.utexas.edu/coding/)
 
 ## Location:
 
 Repository Code:
- - https://github.com/zMag33z/mag-react-portfolio
+ - https://github.com/zMag33z/week-21-MERN_Book-Search-Engine
 
 Heroku Live:
- - *coming soon...*
+ - https://googily-book-search.herokuapp.com/
 
 ## License:
-
-MIT - 2023 - zMaG33z
-
+  
+![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen)
+  
+See *Terms & Conditions* of the license [***here***](https://opensource.org/licenses/MIT).
