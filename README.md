@@ -4,9 +4,9 @@
 
 This application uses the **MERN stack** architectural pattern. Utilizing four separate technologies to construct the three traditional tiers of a full-stack web application:
   - **M**ongoDB - database tier&nbsp;&nbsp;![MongoDB](https://img.shields.io/badge/MongoDB-v4.4.17-9cf)
-  - **E**xpress - server application tier&nbsp;&nbsp;![npm version](https://img.shields.io/badge/express-v4.17.1-9cf)
-  - **R**eact - client display tier&nbsp;&nbsp;![npm version](https://img.shields.io/badge/express-v4.17.1-9cf)
-  - **N**ode - the runtime environment outside of the client browser environment&nbsp;&nbsp;![npm version](https://img.shields.io/badge/node-v18.12.1-9cf)
+  - **E**xpress - server application tier&nbsp;&nbsp;![npm version](https://img.shields.io/badge/Express-v4.17.1-9cf)
+  - **R**eact - client display tier&nbsp;&nbsp;![npm version](https://img.shields.io/badge/React-v17.0.1-9cf)
+  - **N**ode - the runtime environment outside of the client browser environment&nbsp;&nbsp;![npm version](https://img.shields.io/badge/Nodejs-v18.12.1-9cf)
 
 ## Usage:
 
