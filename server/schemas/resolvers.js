@@ -41,13 +41,15 @@ const resolvers = {
       return { token, user };
     },
     // pull user input from args and add to set return new true
-    saveBook: async (parent, { input }, context) => {
+    // newBook value pulled from parameter must match the input type in typeDefs.js file
+    saveBook: async (parent, { newBook }, context) => {
+
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: input } },
+          { $addToSet: { savedBooks: newBook } },
           { new: true }
-        ).populate("savedBooks");
+        );
 
         return updatedUser;
       }
@@ -55,12 +57,13 @@ const resolvers = {
     },
     // pull book id from args to remove
     removeBook: async (parent, { bookId }, context) => {
+      console.log(bookId, 'resolver');
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: { bookId: bookId } } },
+          { $pull: { savedBooks: { bookId } } },
           { new: true }
-        ).populate("savedBooks");
+        );
 
         return updatedUser;
       }
